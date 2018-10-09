@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Список сертификатов:</h1>
+    <script id="tpl_certificates" type="text/x-handlebars-template">
+        <ul>
+        {{#each this}}
+            <li>{{issuerName}}</li>
+        {{/each}}
+        </ul>
+    </script>
+    <div id="out_certificates">
+
+    </div>
+    <div>
+    <h2>1. Получить base64 документа:</h2>
+    <input id="file" type="file"/>
+    <button id="button">ок</button>
+        <input placeholder="результат в base64" type="text" id="base64result"/>
+    </div>
+
+    <h2>2. Создаем подпись документа:</h2>
+    <input type="text" id="inputb64" placeholder="Скопировать сюда base64"/>
+    <input type="text" id="inputbCertHash" placeholder="А сюда хэш сертификата"/>
+    <button id="generateSign">Попробуем?</button>
+    <input id="signResult"/>
+
+    <script src="js/crypto-pro.js"></script>
+    <script src="js/project.js"></script>
+    <script src="js/handlebars-v4.0.12.js"></script>
+</body>
+</html>
